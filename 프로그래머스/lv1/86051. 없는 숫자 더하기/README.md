@@ -68,3 +68,24 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+
+---
+
+### 내 풀이
+- find() 
+- 배열에서 특정 값을 찾는 조건을 callback 함수를 통해 전달하여, 조건에 맞는 값 중 첫번째 값을 리턴
+- 만약 배열에 조건을 만족하는 값이 없으면 undefined를 리턴
+
+- 정수배열에 가능한 값의 범위인 0~9의 경우를 모두 반복문으로 검사
+- 조건문에서 find()를 통해서 defined를 return한 경우 answer에 더해줌
+
+### 다른 사람 풀이
+```javascript
+function solution(numbers) {
+    return 45 - numbers.reduce((cur, acc) => cur + acc, 0);
+}
+```
+- reduce() : 배열의 각 요소에 대해 함수를 실행하고 누적된 값을 출력
+-  acc의 초기값은 0이 되고, 배열의 첫 번째 요소부터 acc에 자신의 값인 cur을 더해감
+-  배열이 가질 수 있는 모든 수를 가졌을 경우의 배열의 합이 45임
+-  이 때문에 45 - 누적값을 return함
