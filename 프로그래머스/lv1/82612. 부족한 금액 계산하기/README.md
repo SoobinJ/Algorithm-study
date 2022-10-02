@@ -62,3 +62,17 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+
+---
+### 다른 사람 풀이
+
+```javascript
+function solution(price, money, count) {
+    const tmp = price * count * (count + 1) / 2 - money;
+    return tmp > 0 ? tmp : 0;
+}
+```
+- 1부터 n까지의 합: n*(n+1)/2
+- 문제에서는 1부터 count까지의 합에 price배만큼 해주는 것 : price*{count*(count+1)/2}
+- 이를 money에서 뺀 값이 0보다 작은 경우는 문제에서 정의한 것처럼 0으로 return 해줌
+- 0보다 큰 경우는 tmp값 return
