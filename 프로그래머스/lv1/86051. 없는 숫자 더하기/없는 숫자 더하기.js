@@ -3,7 +3,6 @@ function solution(numbers) {
     for(var i=0;i<10;i++){
         if(numbers.find(v=>v===i)===undefined){
             answer=answer+i;
-            console.log(i);
         }
     }
     return answer;
