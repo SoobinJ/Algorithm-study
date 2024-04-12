@@ -2,23 +2,17 @@ function solution(progresses, speeds) {
   var answer = [];
   let count = 1;
 
-  const arr = progresses.map((e, index) =>
-    Math.ceil((100 - e) / speeds[index])
-  );
-
-  let num = arr[0];
-  let idx = 1;
-
-  while (idx < arr.length) {
-    if (num >= arr[idx]) {
+  progresses.slice(1).reduce((acc, el, index) => {
+    const a = Math.ceil((100 - el) / speeds[index + 1]);
+      console.log(a,acc)
+    if (acc >= a) {
       count++;
-    } else {
-      answer.push(count);
-      num = arr[idx];
-      count = 1;
+      return acc;
     }
-    idx++;
-  }
+    answer.push(count);
+    count = 1;
+    return a;
+  }, Math.ceil((100 - progresses[0]) / speeds[0]));
   answer.push(count);
 
   return answer;
